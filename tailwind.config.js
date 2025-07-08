@@ -15,6 +15,14 @@ module.exports = {
         'secondary-50': '#F8F6ED',
         'secondary-400': '#C4B76E',
       },
+      spacing: {
+      's': '20px',    // Extra Small spacing
+      'md': '60px',    // Medium spacing
+      'l': '100px',   // Extra Large spacing
+      },
+      fontFamily: {
+        tajawal: 'Tajawal',
+      },
     },
   },
   plugins: [
