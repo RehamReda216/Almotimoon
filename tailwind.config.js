@@ -43,7 +43,7 @@ module.exports = {
       'l': '100px',   // Large spacing
       },
       fontFamily: {
-        tajawal: 'Tajawal',
+         tajawal: ['Tajawal', 'sans-serif'],
       },
     },
   },
