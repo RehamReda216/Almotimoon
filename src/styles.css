@@ -1,5 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'flowbite';
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import "flowbite";
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+@font-face {
+  font-family: "Tajwal";
+  src: url("../src/assets/fonts/Tajawal/Tajawal-Light.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  background-color: #f8f6ed;
+}
+li a.active {
+  @apply text-primary-500 font-bold before:absolute before:left-1/2 before:-translate-x-[50%] before:bottom-0 before:w-[50%] before:content-[''] before:h-[3px] before:rounded-[50px] before:bg-green-gradient before:transition-all before:duration-300;
+}
