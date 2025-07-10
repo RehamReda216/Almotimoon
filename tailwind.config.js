@@ -43,8 +43,9 @@ module.exports = {
         // Gradient جديد مخصص
         "green-gradient": "linear-gradient(to right, #4A8266, #8ABFAF)",
       },
-      fontFamily: {
-        tajawal: "Tajawal",
+      fontFami
+ 
+         tajawal: ['Tajawal', 'sans-serif'],
       },
     },
   },
