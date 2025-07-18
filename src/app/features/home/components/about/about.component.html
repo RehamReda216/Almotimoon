@@ -1,1 +1,24 @@
-<p>about works!</p>
+<div  class="my-12">
+    @for( data of sectionData; track data.id){
+        <div class="flex flex-col md:flex-row justify-between lg:m-l md:m-md m-s ">
+            <!-- Text Section -->
+            <div class="font-tajawal text-center md:text-start">
+                <h2 class="font-bold text-5xl text-primary-600 py-2.5"> 
+                    {{data.headline}}
+                </h2>
+                <h3 class="font-bold text-3xl lg:text-4xl text-primary-800 py-2.5">
+                    {{data.subline}}
+                </h3>
+                <p class="font-bold text-2xl text-primary-800 py-2.5 leading-normal">
+                    {{data.text_section1}} 
+                    <span class="text-primary-700">
+                        {{data.highlighted_text}}
+                    </span>
+                    {{data.text_section2}}
+                </p>
+            </div>
+            <!-- Image Section -->
+            <img [src]="data.image" [alt]="data.imageAlt"/>
+        </div>
+   }
+</div>
