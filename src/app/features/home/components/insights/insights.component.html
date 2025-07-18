@@ -7,15 +7,15 @@
 
     <!-- Card container -->
     <div class="w-full max-w-[100%] md:max-w-[95%] lg:max-w-[345px] h-[200px] border border-primary-500 
-              rounded-[25px] py-[17px] bg-[#EFF6F2] text-center
+              rounded-[25px] py-[17px] text-center
               transition-transform duration-500 ease-[cubic-bezier(0.34, 1.56, 0.64, 1)] 
               md:hover:-translate-y-3 hover:shadow-lg">
       <!-- Card content: icon, value, label -->
       <div class="flex flex-col items-center space-y-[10px]">
         
         <!-- Icon -->
-        <img [src]="card.image" [alt]="card.alt" class="w-[60px] h-[61px]" />
-
+        <!-- <img [src]="card.image" [alt]="card.alt" class="w-[60px] h-[61px]" /> -->
+        <i class="fa-solid text-[60px] text-primary-600 {{card.icon}}"></i>
         <!-- Number -->
         <div class="text-[32px] font-bold text-primary-800">
           {{ card.value }}
