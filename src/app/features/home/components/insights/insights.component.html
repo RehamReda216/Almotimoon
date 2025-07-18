@@ -1,1 +1,39 @@
-<p>insights works!</p>
+<!-- Grid layout: 1 column on mobile, 3 on md+ -->
+<div dir="rtl" class="grid grid-cols-1 md:grid-cols-3 gap-4
+  mx-s md:mx-md lg:mx-l  bg-[#FAF8F0] m-auto">
+
+  <!-- Loop through cards using Angular 17 control flow -->
+  @for (card of cards; track card.label; let i = $index) {
+
+    <!-- Card container -->
+    <div class="w-full max-w-[100%] md:max-w-[95%] lg:max-w-[345px] h-[200px] border border-primary-500 
+              rounded-[25px] py-[17px] bg-[#EFF6F2] text-center
+              transition-transform duration-500 ease-[cubic-bezier(0.34, 1.56, 0.64, 1)] 
+              md:hover:-translate-y-3 hover:shadow-lg">
+      <!-- Card content: icon, value, label -->
+      <div class="flex flex-col items-center space-y-[10px]">
+        
+        <!-- Icon -->
+        <img [src]="card.image" [alt]="card.alt" class="w-[60px] h-[61px]" />
+
+        <!-- Number -->
+        <div class="text-[32px] font-bold text-primary-800">
+          {{ card.value }}
+        </div>
+
+        <!-- Label -->
+        <div class="text-[16px] font-light font-tajawal text-primary-800">
+          {{ card.label }}
+        </div>
+
+      </div>
+    </div>
+
+  } @empty {
+
+    <!-- Shown if cards is empty -->
+    <p class="text-center text-gray-500">No data available.</p>
+
+  }
+
+</div>
