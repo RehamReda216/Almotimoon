@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
+import AOS from 'aos';
+import { ABOUT_SECTION_DATA } from '../../data/about-section.data';
 
 @Component({
   selector: 'app-about',
@@ -6,27 +9,23 @@ import { Component } from '@angular/core';
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
-export class AboutComponent {
-  sectionData=[
-    {
-      id:1,
-      headline: "فضل الإطعام",
-      subline: "في كل كبدٍ رطبةٍ أجر",
-      text_section1: "انطلاقاً من حديث",
-      highlighted_text: "'خيركم من أطعم الطعام'،",
-      text_section2: " يربط المطعمون المطاعم والمطابخ المنزلية والمتطوعين بجيراننا المحتاجين. كل وجبة يتم تحضيرها بنفس الجودة والحب الذي تقدمه لعائلتك.",
-      image:"/assets/about_section/about_section_img1.png",
-      imageAlt:"volunteer"
-    },
-    {
-      id:2,
-      headline: "المطْعِمُون",
-      subline: "أكثر من وجبة - جسر من الكرامة",
-      text_section1: "انطلاقاً من حديث",
-      highlighted_text: "'خيركم من أطعم الطعام'،",
-      text_section2: " يربط المطعمون المطاعم والمطابخ المنزلية والمتطوعين بجيراننا المحتاجين. كل وجبة يتم تحضيرها بنفس الجودة والحب الذي تقدمه لعائلتك.",
-      image:"/assets/about_section/about_section_img2.png",
-      imageAlt:"volunteering"
+export class AboutComponent implements AfterViewInit {
+  // Inject the platform ID to detect if the code is running in the browser
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngAfterViewInit() {
+    // Only initialize AOS on the client (browser)
+    if (isPlatformBrowser(this.platformId)) {
+      // Ensure the DOM is stable before initializing AOS
+      setTimeout(() => {
+      AOS.init({
+          duration: 1200, // Animation duration in milliseconds
+          once: true, // Animation runs only once per element
+        });
+      }, 0);
     }
-  ]
+ }
+ // Section content data (used in the template)
+ sectionData = ABOUT_SECTION_DATA;
+ 
 }
