@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { SectionComponent } from '../../../../shared/components/section/section.component';
 
 @Component({
   selector: 'app-insights',
-  imports: [],
+  imports: [SectionComponent],
   templateUrl: './insights.component.html',
   styleUrl: './insights.component.css'
 })
