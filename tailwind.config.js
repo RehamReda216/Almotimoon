@@ -45,6 +45,9 @@ module.exports = {
       fontFamily: {
          tajawal: ['Tajawal', 'sans-serif'],
       },
+       backgroundImage: {
+        'active-gradient': 'linear-gradient(to right, #4A8266, rgba(138, 191, 175, 0.8))',
+      },
     },
   },
   plugins: [
