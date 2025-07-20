@@ -24,6 +24,22 @@ export class InsightsComponent {
     value: 1234,
     label: 'الوجبات المشاركة',
   }
+  ];
+  blogCards = [
+  {
+    id: 1,
+    title: '5000 وجبة... في يوم واحد!',
+    text: 'جهود مذهلة من مطبخ الخير وشركائنا في أحد أكبر حملاتنا.',
+    image: '/assets/insights_section/blog_card1.png',
+    alt: 'volunteer'
+  },
+  {
+    id: 2,
+    title: 'خلف كل وجبة.. متطوع لا يُرى',
+    text: 'نروي لكم حكاية أحمد الذي يقطع يوميًا 30 كم لتوصيل الطعام للمحتاجين',
+    image: '/assets/insights_section/blog_card2.png',
+    alt: 'volunteer'
+  }
 ];
 
 }

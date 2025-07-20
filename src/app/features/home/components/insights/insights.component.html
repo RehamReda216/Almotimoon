@@ -1,44 +1,28 @@
 <div class="mx-s md:mx-md lg:mx-l">
   <app-section text="أثرنا معاً"></app-section>
   <div class="flex flex-col lg:flex-row gap-5">
-    <div class="max-w-sm w-2/4 lg:max-w-full lg:flex mb-8">
-      <div 
-        class="
-        bg-primary-700 h-full
-        border-r border-b border-l border-gray-400
-        lg:border-l-0 lg:border-t lg:border-gray-400
-        rounded-3xl lg:rounded-l-none p-4 flex flex-col items-center leading-normal">
-        <div class="font-tajawal">
-          <div class="text-primary-50 font-bold text-xl mb-2">5000 وجبة... في يوم واحد!</div>
-          <p class="text-primary-50 text-base">جهود مذهلة من مطبخ الخير وشركائنا في أحد أكبر حملاتنا.</p>
+    @for (card of blogCards; track card.id) {
+      <div class="w-full lg:w-2/4 lg:max-w-full lg:flex mb-8">
+        <div 
+          class="bg-primary-700 h-full
+                border-r border-b border-l border-gray-400
+                lg:border-l-0 lg:border-t lg:border-gray-400
+                rounded-3xl lg:rounded-l-none p-4 flex flex-col items-center leading-normal">
+          <div class="font-tajawal">
+            <div class="text-primary-50 font-bold text-xl mb-2">{{ card.title }}</div>
+            <p class="text-primary-50 text-base">{{ card.text }}</p>
+          </div>
+        </div>
+        <div 
+          class="h-80 lg:w-1/2 flex-none bg-cover bg-center rounded-3xl lg:rounded-r-none
+                text-center overflow-hidden"  
+          [style.background-image]="'url(' + card.image + ')'"
+          [attr.title]="card.alt">
         </div>
       </div>
-      <div 
-          class="h-80 lg:w-1/2 flex-none bg-cover bg-center rounded-3xl lg:rounded-r-none
-          text-center overflow-hidden"  
-          style="background-image: url('/assets/insights_section/blog\ card1.png')" 
-          title="volunteer">
-      </div>
-    </div>
-    <div class="max-w-sm w-2/4 lg:max-w-full lg:flex mb-8">
-      <div class="
-        bg-primary-700
-        border-r border-b border-l 
-        lg:border-l-0 lg:border-t 
-        rounded-3xl lg:rounded-l-none p-3 flex flex-col justify-between leading-normal">
-        <div class="font-tajawal">
-          <div class="text-primary-50 font-bold text-xl mb-2">خلف كل وجبة.. متطوع لا يُرى</div>
-          <p class="text-primary-50 text-base">نروي لكم حكاية أحمد الذي يقطع يوميًا 30 كم لتوصيل الطعام للمحتاجين</p>
-        </div>
-      </div>
-      <div 
-          class="h-80 lg:w-1/2 flex-none bg-cover bg-center rounded-3xl lg:rounded-r-none
-          text-center overflow-hidden"  
-          style="background-image: url('/assets/insights_section/blog\ card2.png')" 
-          title="volunteer">
-      </div>
-    </div>
+    }
   </div>
+
 
   <!-- Grid layout: 1 column on mobile, 3 on md+ -->
   <div dir="rtl" class="grid grid-cols-1 md:grid-cols-3 gap-4
