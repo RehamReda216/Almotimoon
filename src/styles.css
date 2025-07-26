@@ -1,10 +1,9 @@
-/* ALL IMPORTS MUST BE AT THE VERY TOP */
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "flowbite/dist/flowbite.min.css";
 
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'flowbite';
 /* CUSTOM STYLES COME AFTER ALL IMPORTS */
 @font-face {
   font-family: "Tajawal";
@@ -32,4 +31,4 @@ li a.active::before {
   height: 3px;
   border-radius: 50px;
   background: linear-gradient(to right, #4a8266, #8abfafcc);
-}
+
