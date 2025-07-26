@@ -35,17 +35,15 @@ module.exports = {
         },
       },
       spacing: {
-        s: "20px", // Small spacing
-        md: "60px", // Medium spacing
-        l: "100px", // Large spacing
+        s: "20px",
+        md: "60px",
+        l: "100px",
       },
       backgroundImage: {
-        // Gradient جديد مخصص
         "green-gradient": "linear-gradient(to right, #4A8266, #8ABFAF)",
       },
-      fontFami
- 
-         tajawal: ['Tajawal', 'sans-serif'],
+      fontFamily: {
+        tajawal: ["Tajawal", "sans-serif"],
       },
     },
   },

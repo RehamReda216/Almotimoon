@@ -1,17 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import "flowbite";
+/* ALL IMPORTS MUST BE AT THE VERY TOP */
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "flowbite/dist/flowbite.min.css";
+
+/* CUSTOM STYLES COME AFTER ALL IMPORTS */
 @font-face {
-  font-family: "Tajwal";
-  src: url("../src/assets/fonts/Tajawal/Tajawal-Light.ttf");
+  font-family: "Tajawal";
+  src: url("./assets/fonts/Tajawal/Tajawal-Light.ttf");
   font-weight: 400;
   font-style: normal;
 }
+
 body {
   background-color: #f8f6ed;
+  font-family: "Tajawal", sans-serif;
 }
+
 li a.active {
-  @apply text-primary-500 font-bold before:absolute before:left-1/2 before:-translate-x-[50%] before:bottom-0 before:w-[50%] before:content-[''] before:h-[3px] before:rounded-[50px] before:bg-green-gradient before:transition-all before:duration-300;
+  @apply text-primary-500 font-bold relative;
+}
+
+li a.active::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 50%;
+  height: 3px;
+  border-radius: 50px;
+  background: linear-gradient(to right, #4a8266, #8abfafcc);
 }

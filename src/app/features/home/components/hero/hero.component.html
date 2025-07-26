@@ -3,21 +3,26 @@
     class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-y-6 lg:gap-y-0"
   >
     <div
+      data-aos="fade-left"
       class="lg:text-5xl text-2xl text-center lg:text-start text-primary-800 md:px-36 sm:px-24 lg:px-0"
     >
       <span class="text-primary-500">حابب تعمل خير ؟</span>
       <p>شارك بإطعام محتاج بكرامة... من مطعمك المفضل في دقيقة واحدة</p>
     </div>
-    <div class="img lg:ms-auto mx-auto">
-      <img src="/imgs/hero image.png" alt="" />
+    <div class="img lg:ms-auto mx-auto" data-aos="fade-right">
+      <img src="../../../../../assets/img/imgs/hero image.png" alt="" />
     </div>
   </div>
-  <div class="text-center py-10 text-xl lg:text-3xl font-semibold">
+  <div
+    class="text-center py-10 text-xl lg:text-3xl font-semibold"
+    data-aos="fade-up"
+    data-aos-delay="300"
+  >
     <span class="text-primary-800"
       >مشروع غير ربحي - لا بيع ولا دليفري - فقط توصيل الخير لأهله</span
     >
   </div>
-  <div class="text-center">
+  <div class="text-center" data-aos="fade-up" data-aos-delay="500">
     <app-button [background]="'bg-primary-800'" [textColor]="'text-white'"
       >انضم كمتطوع</app-button
     >
