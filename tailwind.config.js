@@ -41,9 +41,13 @@ module.exports = {
       },
       backgroundImage: {
         "green-gradient": "linear-gradient(to right, #4A8266, #8ABFAF)",
+        gradient: "linear-gradient(to right, #EFF6F2, #DEede6)",
       },
       fontFamily: {
         tajawal: ["Tajawal", "sans-serif"],
+      },
+      boxShadow: {
+        custom: "var(--box-shadow)",
       },
     },
   },
