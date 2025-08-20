@@ -1,1 +1,40 @@
 
+<div  class="my-12">
+    @for( data of sectionData; track data.id){
+        <div class="flex flex-col md:flex-row justify-between md:gap-2 lg:m-l md:m-md m-s ">
+            <!-- Text Section -->
+            <div class="md:w-2/4 lg:w-8/12 font-tajawal text-center md:text-start"
+                data-aos="fade-left">
+                <h2 class="font-bold text-5xl text-primary-600 py-2.5"> 
+                    {{data.headline}}
+                </h2>
+                <h3 class="font-bold text-3xl lg:text-4xl text-primary-800 py-2.5">
+                    {{data.subline}}
+                </h3>
+                <p class="font-bold text-2xl text-primary-800 py-2.5 leading-normal">
+                    {{data.text_section1}} 
+                    <span class="text-primary-700">
+                        {{data.highlighted_text}}
+                    </span>
+                    {{data.text_section2}}
+                </p>
+            </div>
+            <!-- Image Section -->
+            <img  data-aos="fade-right" class="lg:w-1/4" [src]="data.image" [alt]="data.imageAlt"/>
+        </div>
+    }
+    <!-- CTA Button navigates to registeration page -->
+    <div class="flex justify-center items-center">
+        <button 
+            type="button"
+            aria-label="انتقل إلى صفحة التسجيل"
+            (click)="goToRegistration()"
+            class="text-primary-700 font-tajawal font-bold
+            w-11/12 md:w-auto
+            border border-primary-700 rounded-xl px-28 py-3
+            hover:text-primary-500 active:bg-active-gradient
+            active:text-primary-700 cursor-pointer">
+           اطعم الآن
+        </button>
+    </div>
+</div>

@@ -1,10 +1,8 @@
-/* ALL IMPORTS MUST BE AT THE VERY TOP */
 @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "flowbite/dist/flowbite.min.css";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "flowbite";
 /* CUSTOM STYLES COME AFTER ALL IMPORTS */
 @font-face {
   font-family: "Tajawal";
