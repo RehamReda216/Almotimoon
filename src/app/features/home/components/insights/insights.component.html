@@ -3,10 +3,12 @@
   <div class="flex flex-col-reverse lg:flex-row gap-5 relative">
     @for (card of blogCards; track card.id) {
       <!-- Card container -->
-      <div class="h-96 w-full w-2/4 lg:max-w-full h-full  flex mb-8">
+      <div 
+        data-aos="fade-up"
+        class="h-96 w-full w-2/4 lg:max-w-full h-full  flex mb-8">
         <!-- Card Text Container -->
         <div 
-          class="bg-primary-700
+          class="h-96 bg-primary-700
                 border-r border-b border-l border-gray-400
                 border-l-0 border-t border-gray-400
                 rounded-3xl rounded-l-none py-auto px-4 leading-normal
@@ -17,7 +19,9 @@
             <p class="text-primary-50 text-base">{{ card.text }}</p>
             <!-- Card-button -->
             <div class="flex justify-center gap-2 items-center p-4">
-              <button class="font-normal text-base
+              <button 
+                  (click)="goToBlogs()"
+                  class="font-normal text-base
                    border border-white text-white rounded-xl p-2.5 
                     transition-all duration-300 hover:bg-white hover:text-[#37624D]">
                 اعرف القصة
@@ -28,7 +32,7 @@
         </div>
         <!-- Card Image  -->
         <div 
-          class="w-1/2 flex-none bg-cover bg-center rounded-3xl rounded-r-none
+          class="h-96 w-1/2 flex-none bg-cover bg-center rounded-3xl rounded-r-none
                 text-center overflow-hidden z-10"  
           [style.background-image]="'url(' + card.image + ')'"
           [attr.title]="card.alt">
