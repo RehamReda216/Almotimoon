@@ -12,10 +12,8 @@ export const routes: Routes = [
     // loadChildren: () =>
     // import('./features/auth/auth.routes').then(m => m.routes)
     // },
-    {
-        path:'',
-        component:HomeComponent,
-    },
+   { path: '', redirectTo: '/home', pathMatch: 'full' },
+   { path: 'home', component: HomeComponent },
     {
         path:'meetups',
         component:MeetupsPageComponent,
