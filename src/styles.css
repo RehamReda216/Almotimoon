@@ -1,9 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'flowbite';
-@import "aos/dist/aos.css";
-body{
-    background-color: #F8F6ED;
+@import "flowbite";
+/* CUSTOM STYLES COME AFTER ALL IMPORTS */
+@font-face {
+  font-family: "Tajawal";
+  src: url("./assets/fonts/Tajawal/Tajawal-Light.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+:root {
+  --color-green-50: #eff6f2;
+  --color-green-100: #deede6;
+  --color-green-200: #bedacc;
+  --color-green-300: #9dc8b3;
+  --box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  --gradient-green-soft: linear-gradient(
+    to right,
+    rgba(239, 246, 242, 0.305),
+    rgba(222, 237, 230, 0.211)
+  );
+}
+html,
+body {
+  direction: rtl;
+  text-align: right;
+}
+body {
+  background-color: #f8f6ed;
+  font-family: "Tajawal", sans-serif;
+}
+
+li a.active {
+  @apply text-primary-500 font-bold relative;
+}
+
+li a.active::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 50%;
+  height: 3px;
+  border-radius: 50px;
+  background: linear-gradient(to right, #4a8266, #8abfafcc);
+}
+li a {
+  transition: all 0.3s;
+}
+li a:hover {
+  color: #64967d;
 }
