@@ -5,6 +5,7 @@ import { MealsPageComponent } from './features/meals/pages/meals.component';
 import { LoginComponent } from './core/auth/pages/login/login.component';
 import { RegistrationComponent } from './core/auth/pages/registration/registration.component';
 import { ProfileComponent } from './features/profile/pages/profile.component';
+import { BlogsComponent } from './features/blogs/blogs/blogs.component';
 
 export const routes: Routes = [
 
@@ -21,6 +22,11 @@ export const routes: Routes = [
         path:'meals',
         component:MealsPageComponent,
         title: 'Meals'
+    },
+    {
+        path:'blogs',
+        component:BlogsComponent,
+        title: 'Blogs'
     },
     {
         path:'login',
