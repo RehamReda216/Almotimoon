@@ -4,6 +4,8 @@ import { MeetupsPageComponent } from './features/meetups/pages/meetups.component
 import { MealsPageComponent } from './features/meals/pages/meals.component';
 
 import { ProfileComponent } from './features/profile/pages/profile.component';
+import { BlogsComponent } from './features/blogs/blogs/blogs.component';
+import { LoginComponent } from './features/auth/components/login/login.component';
 
 export const routes: Routes = [
 
@@ -24,7 +26,17 @@ export const routes: Routes = [
         component:MealsPageComponent,
         title: 'Meals'
     },
-
+    {
+        path:'blogs',
+        component:BlogsComponent,
+        title: 'Blogs'
+    },
+    ,
+    {
+        path:'login',
+        component:LoginComponent
+    }
+    ,
     {
         path:'profile',
         component:ProfileComponent,
