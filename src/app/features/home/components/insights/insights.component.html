@@ -1,39 +1,83 @@
-<!-- Grid layout: 1 column on mobile, 3 on md+ -->
-<div dir="rtl" class="grid grid-cols-1 md:grid-cols-3 gap-4
-  mx-s md:mx-md lg:mx-l  bg-[#FAF8F0] m-auto">
-
-  <!-- Loop through cards using Angular 17 control flow -->
-  @for (card of cards; track card.label; let i = $index) {
-
-    <!-- Card container -->
-    <div class="w-full max-w-[100%] md:max-w-[95%] lg:max-w-[345px] h-[200px] border border-primary-500 
-              rounded-[25px] py-[17px] bg-[#EFF6F2] text-center
-              transition-transform duration-500 ease-[cubic-bezier(0.34, 1.56, 0.64, 1)] 
-              md:hover:-translate-y-3 hover:shadow-lg">
-      <!-- Card content: icon, value, label -->
-      <div class="flex flex-col items-center space-y-[10px]">
-        
-        <!-- Icon -->
-        <img [src]="card.image" [alt]="card.alt" class="w-[60px] h-[61px]" />
-
-        <!-- Number -->
-        <div class="text-[32px] font-bold text-primary-800">
-          {{ card.value }}
+<div class="mx-s md:mx-md lg:mx-l">
+  <app-section text="أثرنا معاً"></app-section>
+  <div class="flex flex-col-reverse lg:flex-row gap-5 relative">
+    @for (card of blogCards; track card.id) {
+      <!-- Card container -->
+      <div 
+        data-aos="fade-up"
+        class="h-96 w-full w-2/4 lg:max-w-full h-full  flex mb-8">
+        <!-- Card Text Container -->
+        <div 
+          class="h-96 bg-primary-700
+                border-r border-b border-l border-gray-400
+                border-l-0 border-t border-gray-400
+                rounded-3xl rounded-l-none py-auto px-4 leading-normal
+                flex flex-col justify-center">
+        <!-- Card Text -->
+          <div class="font-tajawal z-20">
+            <div class="text-primary-50 font-bold text-2xl mb-2">{{ card.title }}</div>
+            <p class="text-primary-50 text-base">{{ card.text }}</p>
+            <!-- Card-button -->
+            <div class="flex justify-center gap-2 items-center p-4">
+              <button 
+                  (click)="goToBlogs()"
+                  class="font-normal text-base
+                   border border-white text-white rounded-xl p-2.5 
+                    transition-all duration-300 hover:bg-white hover:text-[#37624D]">
+                اعرف القصة
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          </div>
         </div>
-
-        <!-- Label -->
-        <div class="text-[16px] font-light font-tajawal text-primary-800">
-          {{ card.label }}
+        <!-- Card Image  -->
+        <div 
+          class="h-96 w-1/2 flex-none bg-cover bg-center rounded-3xl rounded-r-none
+                text-center overflow-hidden z-10"  
+          [style.background-image]="'url(' + card.image + ')'"
+          [attr.title]="card.alt">
         </div>
-
       </div>
-    </div>
+    }
+  </div>
 
-  } @empty {
 
-    <!-- Shown if cards is empty -->
-    <p class="text-center text-gray-500">No data available.</p>
+  <!-- Grid layout: 1 column on mobile, 3 on md+ -->
+  <div dir="rtl" class="grid grid-cols-1 md:grid-cols-3 gap-4
+    bg-[#FAF8F0] m-auto">
 
-  }
+    <!-- Loop through cards using Angular 17 control flow -->
+    @for (card of cards; track card.label; let i = $index) {
 
+      <!-- Card container -->
+      <div class="w-full max-w-[100%] md:max-w-[95%] lg:max-w-[345px] h-[200px] border border-primary-500 
+                rounded-[25px] py-[17px] text-center
+                transition-transform duration-500 ease-[cubic-bezier(0.34, 1.56, 0.64, 1)] 
+                md:hover:-translate-y-3 hover:shadow-lg">
+        <!-- Card content: icon, value, label -->
+        <div class="flex flex-col items-center space-y-[10px]">
+          
+          <!-- Icon -->
+          <i class="fa-solid text-[60px] text-primary-600 {{card.icon}}"></i>
+          <!-- Number -->
+          <div class="text-[32px] font-bold text-primary-800">
+            {{ card.value }}
+          </div>
+
+          <!-- Label -->
+          <div class="text-[16px] font-light font-tajawal text-primary-800">
+            {{ card.label }}
+          </div>
+
+        </div>
+      </div>
+
+    } @empty {
+
+      <!-- Shown if cards is empty -->
+      <p class="text-center text-gray-500">No data available.</p>
+
+    }
+
+  </div>
 </div>
