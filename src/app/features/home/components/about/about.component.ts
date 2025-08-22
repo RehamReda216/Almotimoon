@@ -29,4 +29,8 @@ export class AboutComponent implements AfterViewInit {
   }
   // Section content data (used in the template)
   sectionData = ABOUT_SECTION_DATA;
+
+  goToRegistration(){
+      this.router.navigate(['/registration']);
+  }
 }
