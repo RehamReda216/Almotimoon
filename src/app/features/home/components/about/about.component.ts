@@ -29,8 +29,4 @@ export class AboutComponent implements AfterViewInit {
   }
   // Section content data (used in the template)
   sectionData = ABOUT_SECTION_DATA;
-  // Navigates the user to the 'registration' page when CTA button is clicked
-  goToRegistration(){
-      this.router.navigate(['/registration']);
-  }
 }
