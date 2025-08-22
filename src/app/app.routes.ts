@@ -2,20 +2,20 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './features/home/pages/home.component';
 import { MeetupsPageComponent } from './features/meetups/pages/meetups.component';
 import { MealsPageComponent } from './features/meals/pages/meals.component';
-
 import { ProfileComponent } from './features/profile/pages/profile.component';
 import { BlogsComponent } from './features/blogs/blogs/blogs.component';
 import { LoginComponent } from './features/auth/components/login/login.component';
 
 export const routes: Routes = [
-
-    // {
+     // {
     //     path:'',
     // loadChildren: () =>
     // import('./features/auth/auth.routes').then(m => m.routes)
     // },
-   { path: '', redirectTo: '/home', pathMatch: 'full' },
-   { path: 'home', component: HomeComponent },
+    {
+        path:'',
+        component:HomeComponent,
+    },
     {
         path:'meetups',
         component:MeetupsPageComponent,
@@ -31,12 +31,11 @@ export const routes: Routes = [
         component:BlogsComponent,
         title: 'Blogs'
     },
-    ,
     {
         path:'login',
-        component:LoginComponent
-    }
-    ,
+        component:LoginComponent,
+        title: 'Login'
+    },
     {
         path:'profile',
         component:ProfileComponent,
