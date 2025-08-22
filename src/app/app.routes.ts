@@ -7,13 +7,13 @@ import { ProfileComponent } from './features/profile/pages/profile.component';
 
 export const routes: Routes = [
 
+    // {
+    //     path:'',
+    // loadChildren: () =>
+    // import('./features/auth/auth.routes').then(m => m.routes)
+    // },
     {
         path:'',
-    loadChildren: () =>
-    import('./features/auth/auth.routes').then(m => m.routes)
-    },
-    {
-        path:'home',
         component:HomeComponent,
     },
     {
