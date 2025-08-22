@@ -2,17 +2,22 @@
   <app-section text="أثرنا معاً"></app-section>
   <div class="flex flex-col-reverse lg:flex-row gap-5 relative">
     @for (card of blogCards; track card.id) {
-      <div class="w-full w-2/4 lg:max-w-full flex mb-8">
+      <!-- Card container -->
+      <div class="h-96 w-full w-2/4 lg:max-w-full h-full  flex mb-8">
+        <!-- Card Text Container -->
         <div 
-          class="bg-primary-700 h-auto
+          class="bg-primary-700
                 border-r border-b border-l border-gray-400
                 border-l-0 border-t border-gray-400
-                rounded-3xl rounded-l-none pt-16 px-4 leading-normal">
+                rounded-3xl rounded-l-none py-auto px-4 leading-normal
+                flex flex-col justify-center">
+        <!-- Card Text -->
           <div class="font-tajawal z-20">
             <div class="text-primary-50 font-bold text-2xl mb-2">{{ card.title }}</div>
             <p class="text-primary-50 text-base">{{ card.text }}</p>
-            <div class="flex justify-center p-4">
-              <button class="flex items-center gap-2 font-medium
+            <!-- Card-button -->
+            <div class="flex justify-center gap-2 items-center p-4">
+              <button class="font-normal text-base
                    border border-white text-white rounded-xl p-2.5 
                     transition-all duration-300 hover:bg-white hover:text-[#37624D]">
                 اعرف القصة
@@ -21,8 +26,9 @@
             </div>
           </div>
         </div>
+        <!-- Card Image  -->
         <div 
-          class="h-80 w-1/2 flex-none bg-cover bg-center rounded-3xl rounded-r-none
+          class="w-1/2 flex-none bg-cover bg-center rounded-3xl rounded-r-none
                 text-center overflow-hidden z-10"  
           [style.background-image]="'url(' + card.image + ')'"
           [attr.title]="card.alt">
