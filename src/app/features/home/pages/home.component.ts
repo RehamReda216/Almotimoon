@@ -6,10 +6,12 @@ import { ServicesComponent } from '../components/services/services.component';
 import { InsightsComponent } from '../components/insights/insights.component';
 import { MealsComponent } from '../components/meals/meals.component';
 import { MeetupsComponent } from '../components/meetups/meetups.component';
+import { HeaderComponent } from '../../../shared/components/header/header.component';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeroComponent,AboutComponent,BrandsComponent,ServicesComponent,InsightsComponent,MealsComponent,MeetupsComponent],
+  imports: [HeroComponent,HeaderComponent,AboutComponent,BrandsComponent,ServicesComponent,InsightsComponent,MealsComponent,MeetupsComponent,FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
