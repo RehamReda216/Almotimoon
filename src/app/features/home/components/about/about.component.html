@@ -1,3 +1,4 @@
+
 <div  class="my-12">
     @for( data of sectionData; track data.id){
         <div class="flex flex-col md:flex-row justify-between md:gap-2 lg:m-l md:m-md m-s ">
@@ -22,18 +23,4 @@
             <img  data-aos="fade-right" class="lg:w-1/4" [src]="data.image" [alt]="data.imageAlt"/>
         </div>
     }
-    <!-- CTA Button navigates to registeration page -->
-    <div class="flex justify-center items-center">
-        <button 
-            type="button"
-            aria-label="انتقل إلى صفحة التسجيل"
-            (click)="goToRegistration()"
-            class="text-primary-700 font-tajawal font-bold
-            w-11/12 md:w-auto
-            border border-primary-700 rounded-xl px-28 py-3
-            hover:text-primary-500 active:bg-active-gradient
-            active:text-primary-700 cursor-pointer">
-           اطعم الآن
-        </button>
-    </div>
 </div>
