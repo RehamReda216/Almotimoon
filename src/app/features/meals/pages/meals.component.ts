@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Carousel } from 'flowbite';
+import { MealCardComponent } from '../../../shared/components/meal-card/meal-card.component';
 
 @Component({
   selector: 'app-meals-page',
-  imports: [],
+  imports: [MealCardComponent],
   templateUrl: './meals.component.html',
   styleUrl: './meals.component.css'
 })
