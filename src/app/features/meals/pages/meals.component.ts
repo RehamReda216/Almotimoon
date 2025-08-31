@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Carousel } from 'flowbite';
+import { Carousel, initFlowbite } from 'flowbite';
 import { MealCardComponent } from '../../../shared/components/meal-card/meal-card.component';
 
 @Component({
@@ -9,7 +9,10 @@ import { MealCardComponent } from '../../../shared/components/meal-card/meal-car
   templateUrl: './meals.component.html',
   styleUrl: './meals.component.css'
 })
-export class MealsPageComponent {
+export class MealsPageComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    initFlowbite();
+  }
   constructor( private router: Router) {}
   goToRegistration(){
         this.router.navigate(['/registration']);

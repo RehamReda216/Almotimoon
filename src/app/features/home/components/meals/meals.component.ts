@@ -9,5 +9,5 @@ import { MealCardComponent } from '../../../../shared/components/meal-card/meal-
   styleUrl: './meals.component.css'
 })
 export class MealsComponent {
-
+  
 }
