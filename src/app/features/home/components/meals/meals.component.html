@@ -4,11 +4,29 @@
 
   <!-- card -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-6 font-tajawal">
-    <!--  -->
-    <app-meal-card></app-meal-card>
-    <!--  -->
-    <app-meal-card></app-meal-card>
-    <!--  -->
-    <app-meal-card></app-meal-card>
+      <app-meal-card
+          class="block"
+          title="شنطة غذائية"
+          image="assets/meals-page/salad.png"
+          address="القرى"
+          [persons]=100
+          preparationTime="3 ساعات">
+      </app-meal-card>
+      <app-meal-card
+          class="hidden md:block"
+          title="سندويتشات للعمال"
+          image="assets/meals-page/chicken_meal.png"
+          address="محطة مترو شبرا الخيمة"
+          [persons]=100
+          preparationTime="5 ايام">
+      </app-meal-card>
+      <app-meal-card
+          class="hidden md:block"
+          title="وجبة ساخنة يومية"
+          image="assets/meals-page/vegetables.png"
+          address="ميامي - الاسكندرية"
+          [persons]=50
+          preparationTime="3دقيقة">
+      </app-meal-card>
   </div>
 </section>
