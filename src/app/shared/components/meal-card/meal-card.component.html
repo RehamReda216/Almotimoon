@@ -1,40 +1,42 @@
 <div class="card drop-shadow-xl">
-      <div
-        class="title text-primary-50 bg-primary-700 font-bold text-2xl text-center p-8 rounded-t-3xl"
-      >
-        <h2 class="font-bold text-3xl"> وجبة بروستد دجاج </h2>
-      </div>
-      <!-- meal-image -->
-      <div class="h-43">
-          <img src="assets/meals-page/test-meal.png" alt="">
-      </div>
-      <div class="info rounded-b-3xl bg-secondary-50 py-5 px-3">
-        <!-- details -->
-        <ul class="mt-1 space-y-2">
-          <li class="flex justify-between px-3">
-            <p class="text-sm font-normal text-primary-700 inline-block">
-              سيدى جابر - الاسكندرية
-            </p>
-            <span class="mr-3"
-              ><i class="text-sm fas fa-map-marker-alt text-primary-700"></i
-            ></span>
-          </li>
-          <li class="flex justify-between px-3">
-            <p class="text-sm font-normal text-primary-700 inline-block">
-              يكفى 5 اشخاص
-            </p>
-            <span class="mr-3"
-              ><i class="text-sm fas fa-users text-primary-700"></i
-            ></span>
-          </li>
-          <li class="flex justify-between px-3">
-            <p class="text-sm font-normal text-primary-700 inline-block">
-              مدة التحضير 60دقيقة
-            </p>
-            <span class="mr-3"
-              ><i class="text-sm fas fa-clock text-primary-700"></i
-            ></span>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div
+    class="title text-primary-50 bg-primary-700 font-bold text-2xl text-center p-8 rounded-t-3xl"
+  >
+    <h2 class="font-bold text-3xl">{{ title() }}</h2>
+  </div>
+
+  <!-- meal-image -->
+  <div class="h-43">
+    <img [src]="image()" alt="{{ title() }}">
+  </div>
+
+  <div class="info rounded-b-3xl bg-secondary-50 py-5 px-3">
+    <!-- details -->
+    <ul class="mt-1 space-y-2">
+      <li class="flex justify-between px-3">
+        <p class="text-sm font-normal text-primary-700 inline-block">
+          {{ address() }}
+        </p>
+        <span class="mr-3">
+          <i class="text-sm fas fa-map-marker-alt text-primary-700"></i>
+        </span>
+      </li>
+      <li class="flex justify-between px-3">
+        <p class="text-sm font-normal text-primary-700 inline-block">
+          يكفى {{ persons() }} اشخاص
+        </p>
+        <span class="mr-3">
+          <i class="text-sm fas fa-users text-primary-700"></i>
+        </span>
+      </li>
+      <li class="flex justify-between px-3">
+        <p class="text-sm font-normal text-primary-700 inline-block">
+          مدة التحضير {{ preparationTime() }}
+        </p>
+        <span class="mr-3">
+          <i class="text-sm fas fa-clock text-primary-700"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
