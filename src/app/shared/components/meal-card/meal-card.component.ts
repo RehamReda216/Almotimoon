@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-meal-card',
@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './meal-card.component.css'
 })
 export class MealCardComponent {
-
+    // signals inputs
+    title = input<string>();
+    image = input<string>();
+    address = input<string>();
+    persons = input<number>();
+    preparationTime = input<string>();
 }

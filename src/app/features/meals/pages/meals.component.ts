@@ -1,7 +1,8 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { Carousel, initFlowbite } from 'flowbite';
 import { MealCardComponent } from '../../../shared/components/meal-card/meal-card.component';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-meals-page',
@@ -10,10 +11,17 @@ import { MealCardComponent } from '../../../shared/components/meal-card/meal-car
   styleUrl: './meals.component.css'
 })
 export class MealsPageComponent implements AfterViewInit {
-  ngAfterViewInit(): void {
-    initFlowbite();
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private router: Router) {}
+
+  async ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      const { Carousel } = await import('flowbite');
+      const carouselEl = document.getElementById('animation-carousel');
+      if (carouselEl) {
+        new Carousel(carouselEl);
+      }
+    }
   }
-  constructor( private router: Router) {}
   goToRegistration(){
         this.router.navigate(['/registration']);
   }
