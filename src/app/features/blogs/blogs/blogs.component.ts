@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Carousel, initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-blogs',
@@ -6,6 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.css'
 })
-export class BlogsComponent {
+export class BlogsComponent implements AfterViewInit{
 
+  private platformId = inject(PLATFORM_ID);
+  ngAfterViewInit(): void {
+  if (isPlatformBrowser(this.platformId)) {
+    setTimeout(() => {
+      initFlowbite();
+    }, 0);
+   }
+  }
 }

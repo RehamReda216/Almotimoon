@@ -13,13 +13,11 @@ import { isPlatformBrowser } from '@angular/common';
 export class MealsPageComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object,private router: Router) {}
 
-  async ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      const { Carousel } = await import('flowbite');
-      const carouselEl = document.getElementById('animation-carousel');
-      if (carouselEl) {
-        new Carousel(carouselEl);
-      }
+  ngAfterViewInit(): void {
+  if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        initFlowbite();
+      }, 0);
     }
   }
   goToRegistration(){
