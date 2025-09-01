@@ -11,4 +11,5 @@ import { CommonModule } from '@angular/common';
 export class ButtonComponent {
 @Input() background:string='';
 @Input() textColor:string='';
+@Input() width:string='';
 }
