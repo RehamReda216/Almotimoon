@@ -7,11 +7,10 @@ import { InsightsComponent } from '../components/insights/insights.component';
 import { MealsComponent } from '../components/meals/meals.component';
 import { MeetupsComponent } from '../components/meetups/meetups.component';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
-import { FooterComponent } from '../../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeroComponent,HeaderComponent,AboutComponent,BrandsComponent,ServicesComponent,InsightsComponent,MealsComponent,MeetupsComponent,FooterComponent],
+  imports: [HeroComponent,HeaderComponent,AboutComponent,BrandsComponent,ServicesComponent,InsightsComponent,MealsComponent,MeetupsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
