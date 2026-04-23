@@ -23,11 +23,7 @@
         </a>
         <!-- ================================= -->
         <div class="w-[250px] md:w-[300px] lg:w-[350px]">
-          <img
-            class="w-full"
-            src="../../../../../assets/login/Layer_1.png"
-            alt=""
-          />
+          <img class="w-full" src="assets/login/Layer_1.png" alt="" />
         </div>
       </div>
       <div class="form text-right">
@@ -58,28 +54,29 @@
                 placeholder=" أدخل بريدك الإلكتروني "
               />
               <!-- Email Errors -->
-              @if (loginForm.get('email')?.touched) { @if
-              (loginForm.get('email')?.errors?.['required']) {
-              <div>
-                <p
-                  id="standard_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
-                >
-                  <span class="font-medium">Oh, snapp!</span> The email is
-                  required!
-                </p>
-              </div>
-              } @else if (loginForm.get('email')?.errors?.['email']) {
-              <div>
-                <p
-                  id="standard_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
-                >
-                  <span class="font-medium">Oh, snapp!</span> Please enter a
-                  valid email!
-                </p>
-              </div>
-              } }
+              @if (loginForm.get("email")?.touched) {
+                @if (loginForm.get("email")?.errors?.["required"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">Oh, snapp!</span> The email is
+                      required!
+                    </p>
+                  </div>
+                } @else if (loginForm.get("email")?.errors?.["email"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">Oh, snapp!</span> Please enter a
+                      valid email!
+                    </p>
+                  </div>
+                }
+              }
             </div>
             <!-- password -->
             <div class="mb-8">
@@ -98,38 +95,40 @@
               />
 
               <!-- Password Errors -->
-              @if (loginForm.get('password')?.touched) { @if
-              (loginForm.get('password')?.errors?.['required']) {
-              <div>
-                <p
-                  id="standard_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
-                >
-                  <span class="font-medium">Oh, snapp!</span> The password is
-                  required!
-                </p>
-              </div>
-              } @else if (loginForm.get('password')?.errors?.['minlength']) {
-              <div>
-                <p
-                  id="standard_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
-                >
-                  <span class="font-medium">Oh, snapp!</span> Password must be
-                  at least 8 characters!
-                </p>
-              </div>
-              } @else if (loginForm.get('password')?.errors?.['pattern']) {
-              <div>
-                <p
-                  id="standard_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
-                >
-                  <span class="font-medium">Oh, snapp!</span> Password must
-                  contain uppercase, lowercase, number, and special character!
-                </p>
-              </div>
-              } }
+              @if (loginForm.get("password")?.touched) {
+                @if (loginForm.get("password")?.errors?.["required"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">Oh, snapp!</span> The password
+                      is required!
+                    </p>
+                  </div>
+                } @else if (loginForm.get("password")?.errors?.["minlength"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">Oh, snapp!</span> Password must
+                      be at least 8 characters!
+                    </p>
+                  </div>
+                } @else if (loginForm.get("password")?.errors?.["pattern"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">Oh, snapp!</span> Password must
+                      contain uppercase, lowercase, number, and special
+                      character!
+                    </p>
+                  </div>
+                }
+              }
             </div>
             <div class="flex items-center justify-between text-[12px]">
               <div class="text-[12px] text-gray-400">
@@ -164,7 +163,7 @@
               <div
                 class="flex gap-1 items-center border border-[#D9D9D9] rounded-3xl py-3 px-8 mb-3"
               >
-                <img src="../../../../../assets/login/Vector.png" alt="" />
+                <img src="assets/login/Vector.png" alt="" />
                 <span class="font-medium text-[12px]"
                   >تسجيل الدخول باستخدام Apple</span
                 >
@@ -172,10 +171,7 @@
               <div
                 class="flex gap-1 items-center border border-[#D9D9D9] rounded-3xl py-3 px-8 mb-3"
               >
-                <img
-                  src="../../../../../assets/login/icons8-google 1.png"
-                  alt=""
-                />
+                <img src="assets/login/icons8-google 1.png" alt="" />
                 <span class="font-medium text-[12px]"
                   >تسجيل الدخول باستخدام Google</span
                 >
@@ -188,9 +184,9 @@
               >
             </div>
             @if (errorLoginMessage) {
-            <span class="text-[12px] text-red-600">{{
-              errorLoginMessage
-            }}</span>
+              <span class="text-[12px] text-red-600">{{
+                errorLoginMessage
+              }}</span>
             }
           </form>
         </div>
