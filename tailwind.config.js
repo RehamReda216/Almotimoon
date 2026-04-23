@@ -49,7 +49,6 @@ module.exports = {
 
       boxShadow: {
         custom: "var(--box-shadow)",
-
         backgroundImage: {
           "active-gradient":
             "linear-gradient(133.39deg, rgba(74, 130, 102, 0.4) 19.51%, rgba(138, 191, 175, 0.32) 58.45%)",

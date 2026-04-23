@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
+import { HeaderComponent } from './user-app/shared/components/header/header.component';
+import { FooterComponent } from './user-app/shared/components/footer/footer.component';
 import { initFlowbite } from 'flowbite';
 // import * as AOS from 'aos';
 import * as AOS from 'aos';
@@ -14,10 +14,9 @@ import * as AOS from 'aos';
 export class AppComponent implements OnInit {
   ngOnInit(): void {
     initFlowbite();
-        AOS.init({
+    AOS.init({
       duration: 1000, // duration of animation
-      once: true,     // whether animation should happen only once
+      once: true, // whether animation should happen only once
     });
-
   }
 }
