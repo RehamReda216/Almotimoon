@@ -8,42 +8,16 @@ import { BlogsComponent } from './user-app/features/meetups/components/blogs/blo
 import { LoginComponent } from './user-app/features/auth/components/login/login.component';
 
 export const routes: Routes = [
-  // {
-  //     path:'',
-  // loadChildren: () =>
-  // import('./features/auth/auth.routes').then(m => m.routes)
-  // },
   {
     path: '',
-    component: HomeComponent,
+    loadChildren: () =>
+      import('../app/user-app/features/auth/auth.routes').then((m) => m.routes),
   },
   {
-    path: 'meetups',
-    component: MeetupsPageComponent,
-    title: 'Meetups',
-  },
-  {
-    path: 'meals',
-    component: MealsPageComponent,
-    title: 'Meals',
-  },
-  {
-    path: 'blogs',
-    component: BlogsComponent,
-    title: 'Blogs',
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    title: 'Login',
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    title: 'Profile',
-  },
-  {
-    path: '**',
-    redirectTo: '',
+    path: 'user-layout',
+    loadChildren: () =>
+      import('../app/user-app/features/user-layout/user-layout-routes').then(
+        (m) => m.routes,
+      ),
   },
 ];
