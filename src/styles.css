@@ -15,8 +15,10 @@
   --color-green-100: #deede6;
   --color-green-200: #bedacc;
   --color-green-300: #9dc8b3;
-  --box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  --box-shadow: rgba(55, 98, 77, 0.4) 0px 2px 4px,
+    rgba(55, 98, 77, 0.3) 0px 7px 13px -3px,
+    rgba(55, 98, 77, 0.2) 0px -3px 0px inset;
+
   --gradient-green-soft: linear-gradient(
     to right,
     rgba(239, 246, 242, 0.305),
