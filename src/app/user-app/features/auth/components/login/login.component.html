@@ -1,0 +1,198 @@
+<div class="login-container flex justify-center h-[100vh]">
+  <div
+    class="w-[98%] xl:w-[70%] text-center rounded-xl px-7 lg:px-14 py-10 text-[var(--accent)]"
+  >
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-5 rounded-md shadow-custom px-8 py-14 md:p-14"
+    >
+      <div class="image flex flex-col justify-center items-center">
+        <a
+          [routerLink]="['/home']"
+          routerLinkActive="active"
+          class="flex items-center space-x-3 rtl:space-x-reverse w-fit"
+        >
+          <img
+            src="../../../../assets/img/icons/Heart logo.png"
+            class="h-8"
+            alt="Heart Logo"
+          />
+          <span
+            class="self-center text-5xl font-bold whitespace-nowrap text-primary-600"
+            >مُطعِمُون</span
+          >
+        </a>
+        <!-- ================================= -->
+        <div class="w-[250px] md:w-[300px] lg:w-[350px]">
+          <img
+            class="w-full"
+            src="../../../../../assets/login/Layer_1.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="form text-right">
+        <div class="max-w-sm mx-auto text-primary-700">
+          <h2
+            class="text-2xl font-bold text-[var(--accent)] my-4 drop-shadow-sm text-center md:text-right"
+          >
+            مرحباً بك مرة أُخرى!
+          </h2>
+          <span class="block my-4 text-center md:text-right"
+            >أدخل بياناتك الخاصة للوصول إلى حسابك
+          </span>
+          <form [formGroup]="loginForm" class="" (ngSubmit)="loginOperation()">
+            <!-- email -->
+            <div class="mb-8">
+              <label
+                for="email"
+                class="block mb-3 text-[11px] text-right font-medium"
+              >
+                عنوان البريد الإلكتروني
+              </label>
+              <input
+                type="email"
+                formControlName="email"
+                id="email"
+                class="bg-transparent border border-[#D9D9D9] placeholder-primary-200 text-sm rounded-lg focus:s:ring-0 focus:border-primary-700 focus:outline-none focus:border duration-300 block w-full p-2.5"
+                required
+                placeholder=" أدخل بريدك الإلكتروني "
+              />
+              <!-- Email Errors -->
+              @if (loginForm.get("email")?.touched) {
+                @if (loginForm.get("email")?.errors?.["required"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">تنبيه!</span> البريد الإلكتروني
+                      مطلوب!
+                    </p>
+                  </div>
+                } @else if (loginForm.get("email")?.errors?.["email"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">تنبيه!</span> يرجى إدخال بريد
+                      إلكتروني صحيح!
+                    </p>
+                  </div>
+                }
+              }
+            </div>
+            <!-- password -->
+            <div class="mb-8">
+              <label
+                for="password"
+                class="mb-3 text-[11px] text-right flex justify-between items-center font-medium"
+                ><span> كلمة المرور </span
+                ><span> نسيت كلمة المرور </span></label
+              >
+              <input
+                type="password"
+                formControlName="password"
+                id="password"
+                class="bg-transparent border border-[#D9D9D9] placeholder-primary-200 text-sm rounded-lg focus:ring-0 focus:border-primary-700 focus:outline-none focus:border block w-full p-2.5"
+                required
+              />
+
+              <!-- Password Errors -->
+              @if (loginForm.get("password")?.touched) {
+                @if (loginForm.get("password")?.errors?.["required"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">تنبيه!</span> كلمة المرور
+                      مطلوبة!
+                    </p>
+                  </div>
+                } @else if (loginForm.get("password")?.errors?.["minlength"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">تنبيه!</span> يجب أن تكون كلمة
+                      المرور 8 أحرف على الأقل!
+                    </p>
+                  </div>
+                } @else if (loginForm.get("password")?.errors?.["pattern"]) {
+                  <div>
+                    <p
+                      id="standard_error_help"
+                      class="mt-2 text-xs text-red-600 dark:text-red-400"
+                    >
+                      <span class="font-medium">تنبيه!</span> يجب أن تحتوي على
+                      حرف كبير وصغير ورقم ورمز خاص!
+                    </p>
+                  </div>
+                }
+              }
+            </div>
+            <!-- <div class="flex items-center justify-between text-[12px]">
+              <div class="text-[12px] text-gray-400">
+                <div class="flex items-center mb-2 sm:mb-0">
+                  <input
+                    id="remember"
+                    type="checkbox"
+                    class="w-4 h-4 border border-gray-300 rounded-sm bg-transparent text-[var(--hover)] focus:ring-0 focus:outline-0"
+                  />
+                  <label for="remember" class="ms-2 text-primary-700"
+                    >تذكرني</label
+                  >
+                </div>
+              </div>
+            </div> -->
+
+            <app-button
+              [background]="'bg-primary-800'"
+              [textColor]="'text-white'"
+              [width]="'w-full'"
+              >تسجيل الدخول
+            </app-button>
+            <!-- ====== or  -->
+            <div class="w-fit mx-auto">
+              <span class="text-primary-700 font-medium flex justify-center"
+                >أو</span
+              >
+              <div
+                class="flex gap-1 items-center border border-[#D9D9D9] rounded-3xl py-3 px-8 mb-3"
+              >
+                <img src="../../../../../assets/login/Vector.png" alt="" />
+                <span class="font-medium text-[12px]"
+                  >تسجيل الدخول باستخدام Apple</span
+                >
+              </div>
+              <div
+                class="flex gap-1 items-center border border-[#D9D9D9] rounded-3xl py-3 px-8 mb-3"
+              >
+                <img
+                  src="../../../../../assets/login/icons8-google 1.png"
+                  alt=""
+                />
+                <span class="font-medium text-[12px]"
+                  >تسجيل الدخول باستخدام Google</span
+                >
+              </div>
+              <a
+                routerLink="/register"
+                class="hover:text-[var(--accent)] text-[var(--hover)] hover:underline transition block mx-auto w-fit"
+              >
+                <span>ليس لديك حساب؟ </span>التسجيل</a
+              >
+            </div>
+            <!-- @if (errorLoginMessage) {
+              <span class="text-[12px] text-red-600">{{
+                errorLoginMessage
+              }}</span>
+            } -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
