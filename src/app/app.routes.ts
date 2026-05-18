@@ -11,13 +11,13 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('../app/user-app/features/auth/auth.routes').then((m) => m.routes),
-  },
-  {
-    path: 'user-layout',
-    loadChildren: () =>
       import('../app/user-app/features/user-layout/user-layout-routes').then(
         (m) => m.routes,
       ),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('../app/user-app/features/auth/auth.routes').then((m) => m.routes),
   },
 ];
