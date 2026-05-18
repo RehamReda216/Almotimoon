@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ButtonComponent {
   @Input() background: string = '';
+  @Input() disabled: boolean = false;
   @Input() textColor: string = '';
   @Input() width: string = '';
+  @Output() click: EventEmitter<void> = new EventEmitter<void>();
 }

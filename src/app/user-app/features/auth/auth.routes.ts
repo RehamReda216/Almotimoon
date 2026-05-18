@@ -5,28 +5,24 @@ export const routes: Routes = [
   // Auth routes - should come first
   {
     path: '',
-    
-       children: [
-      
+
+    children: [
       {
-       path: '',
-redirectTo:'login',
-pathMatch:'full'  
-    },
-      {
-       path: 'login',
-       component:LoginComponent
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
       },
-    //   {
-    //     path: 'register',
-    //     loadComponent: () => 
-    //       import('./features/auth/components/register/register.component').then(m => m.RegisterComponent)
-    //   }
-    ]
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'register',
+        loadComponent: () =>
+          import('./components/register/register.component').then(
+            (m) => m.RegisterComponent,
+          ),
+      },
+    ],
   },
-
-  
-
-
-
 ];

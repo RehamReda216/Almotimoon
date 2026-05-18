@@ -1,4 +1,6 @@
 <button
+  [disabled]="disabled"
+  (click)="click.emit()"
   class="px-8 py-2 text-[14px] rounded-[10px] border-[1px] border-primary-700 inline-block"
   [ngClass]="background + ' ' + textColor + ' ' + width"
 >
