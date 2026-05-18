@@ -4,6 +4,7 @@ import { MeetupsPageComponent } from '../meetups/pages/meetups.component';
 import { MealsPageComponent } from '../meals/pages/meals.component';
 import { ProfileComponent } from '../profile/pages/profile.component';
 import { UserLayoutComponent } from './pages/user-layout/user-layout.component';
+import { BlogsComponent } from '../blogs/blogs/blogs.component';
 
 export const routes: Routes = [
   // Auth routes - should come first
@@ -28,7 +29,11 @@ export const routes: Routes = [
         component: MealsPageComponent,
         title: 'Meals',
       },
-
+      {
+        path: 'blogs',
+        component: BlogsComponent,
+        title: 'Blogs',
+      },
       {
         path: 'profile',
         component: ProfileComponent,
