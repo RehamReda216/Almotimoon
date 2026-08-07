@@ -41,7 +41,8 @@ module.exports = {
       },
       backgroundImage: {
         "green-gradient": "linear-gradient(to right, #4A8266, #8ABFAF)",
-        gradient: "linear-gradient(to right, #EFF6F2, #DEede6)",
+         gradient: "linear-gradient(to right, #EFF6F2, #DEede6)",
+        "glow-gradient": "linear-gradient(to right, #37624D 0%, #9DC8B3 33%, #37624D 100%)",
       },
       fontFamily: {
         tajawal: ["Tajawal", "sans-serif"],

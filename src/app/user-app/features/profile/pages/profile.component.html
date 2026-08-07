@@ -1,36 +1,39 @@
-<div class="mx-[100px] flex flex-col gap-6 py-2">
+<div class="mx-4 md:mx-[100px] flex flex-col gap-6 py-2">
     <!-- big card -->
     <div class="w-full" dir="rtl">
         <div class="mx-auto bg-gradient-to-l from-primary-800 via-primary-500 to-primary-300 rounded-[30px] shadow-custom flex flex-col md:flex-row items-center justify-center
-                    lg:max-w-[1240px] lg:p-10 lg:gap-16 
-                    md:max-w-[770px] md:p-8 md:gap-10 
+                    lg:max-w-[1240px] lg:p-10 lg:gap-16
+                    md:max-w-[770px] md:p-8 md:gap-10
                     max-w-96 p-6 gap-8">
             
             <div class="flex flex-col items-center justify-center gap-3 flex-shrink-0">
                 <div class="relative inline-flex justify-center items-center">
-                    <img class="rounded-full border-[5px] border-secondary-50/20 object-cover shadow-xl
-                                lg:size-56 md:size-40 size-20" 
+                    <img class="rounded-full border-[5px] border-secondary-50 object-cover shadow-xl
+                                lg:size-56 md:size-40 size-20"
                         src="assets/user-avatar.png" alt="Profile">
                 </div>
                 
                 <div class="px-5 py-1.5 bg-secondary-50 rounded-full shadow-md">
-                    <span class="text-primary-800 lg:text-base md:text-sm text-sm font-bold font-tajawal">متطوع نشط</span>
+                    <span class="text-primary-700 lg:text-base md:text-sm text-sm font-bold font-tajawal">متطوع نشط</span>
                 </div>
             </div>
 
-            <div class="flex flex-col items-center md:items-start gap-4 md:gap-2 text-center md:text-right">
+            <div class="flex flex-col items-center md:items-start gap-4 text-center md:text-right">
                 
                 <div class="flex flex-col md:flex-row items-center gap-1 md:gap-4">
                     <h1 class="text-secondary-50 font-bold font-tajawal lg:text-6xl md:text-4xl text-2xl">مرحبا بك</h1>
-                    <span class="text-secondary-50 font-medium font-tajawal lg:text-6xl md:text-4xl text-2xl">محمد أحمد</span>
+                    <span class="text-secondary-50 font-bold font-tajawal lg:text-6xl md:text-4xl text-2xl">محمد أحمد</span>
                 </div>
                 
-                <p class="text-secondary-50 font-medium font-tajawal opacity-90 leading-tight lg:text-4xl md:text-2xl text-base">
+                <p class="text-secondary-50 font-bold font-tajawal opacity-90 leading-tight lg:text-4xl md:text-2xl text-base">
                     شكراً لك على كونك جزءاً من رسالة الخير
                 </p>
                 
-                <div class="border-b border-secondary-50/40 pb-1 mt-2">
-                    <span class="text-secondary-50 font-medium font-tajawal lg:text-lg md:text-sm text-xs cursor-pointer">
+                <div class="border-b-2 border-secondary-50
+                            relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px]
+                            hover:[border-image:linear-gradient(to_right,#37624D_0%,#9DC8B3_33%,#37624D_100%)_1] pb-1 mt-2
+                            after:transition-all after:duration-300 after:ease-in-out">
+                    <span class="text-secondary-50 font-bold font-tajawal lg:text-lg md:text-sm text-xs cursor-pointer">
                         من فضلك أكمل ملفك الشخصي 70%
                     </span>
                 </div>
@@ -38,114 +41,114 @@
 
         </div>
     </div>
+
     <!-- three cards -->
-    <div class="w-full flex justify-between items-center gap-6 mt-8" dir="rtl">
-  
+    <!-- تم الحفاظ على المرونة للتابلت والـ Desktop، وتتحول لعمودية فقط على الشاشات الأصغر من التابلت sm: flex-col -->
+    <div class="w-full flex flex-col sm:flex-row justify-between items-center gap-6 mt-8" dir="rtl">
 
-        <div class="flex-1 bg-secondary-50 h-[220px] p-6 rounded-[40px] shadow-custom border border-secondary-100 flex flex-col justify-between items-center relative overflow-hidden">
-            
-            <div class="w-full h-12 px-5 bg-secondary-100 rounded-full flex justify-center items-center gap-3">
-            <i class="fas fa-calendar-alt text-primary-800 text-lg"></i>
-            <span class="text-primary-800 text-2xl font-bold font-tajawal">التجمعات القادمة</span>
-            </div>
-
-            <div class="flex flex-col items-center gap-1 mb-4">
-            <div class="text-primary-900 text-6xl font-bold font-tajawal leading-none">3</div>
-            <div class="text-neutral-600 text-lg font-medium font-tajawal">لقاءات هذا الأسبوع</div>
-            </div>
-            
-        </div>
-
-        <div class="flex-1 bg-secondary-50 h-[220px] p-6 rounded-[40px] shadow-custom border border-secondary-100 flex flex-col justify-between items-center relative overflow-hidden">
-            <div class="w-full h-12 px-5 bg-secondary-100 rounded-full flex justify-center items-center gap-3">
-            <i class="fas fa-chart-line text-primary-800 text-lg"></i>
-            <span class="text-primary-800 text-2xl font-bold font-tajawal">نقاط التأثير</span>
+        <!-- Card 1 -->
+        <div class="w-full sm:flex-1 bg-secondary-50 h-[172px] p-5 rounded-3xl shadow-custom border border-secondary-100 flex flex-col gap-4 items-center relative overflow-hidden">
+            <div class="relative w-full h-12 px-5 py-2.5 bg-secondary-100 rounded-full flex justify-center items-center">
+                <i class="fas fa-calendar-alt text-primary-800 text-lg absolute left-5"></i>
+                <span class="text-primary-800 text-xl font-bold font-tajawal">التجمعات القادمة</span>
             </div>
             <div class="flex flex-col items-center gap-1 mb-4">
-            <div class="text-primary-900 text-6xl font-bold font-tajawal leading-none">492</div>
-            <div class="text-neutral-600 text-lg font-medium font-tajawal">نقطة تأثير إيجابي</div>
+                <div class="text-primary-700 text-4xl font-medium font-tajawal leading-none">3</div>
+                <div class="text-neutral-600 text-lg font-medium font-tajawal">لقاءات هذا الأسبوع</div>
             </div>
         </div>
 
-        <div class="flex-1 bg-secondary-50 h-[220px] p-6 rounded-[40px] shadow-custom border border-secondary-100 flex flex-col justify-between items-center relative overflow-hidden">
-            <div class="w-full h-12 px-5 bg-secondary-100 rounded-full flex justify-center items-center gap-3">
-            <i class="fas fa-user-friends text-primary-800 text-lg"></i>
-            <span class="text-primary-800 text-2xl font-bold font-tajawal">الأشخاص المستفيدون</span>
+        <!-- Card 2 -->
+        <div class="w-full sm:flex-1 bg-secondary-50 h-[172px] p-5 rounded-3xl shadow-custom border border-secondary-100 flex flex-col gap-4 items-center relative overflow-hidden">
+            <div class="relative w-full h-12 px-5 py-2.5 bg-secondary-100 rounded-full flex justify-center items-center">
+                <i class="fas fa-chart-line text-primary-800 text-lg absolute left-5"></i>
+                <span class="text-primary-800 text-xl font-bold font-tajawal">نقاط التأثير</span>
             </div>
             <div class="flex flex-col items-center gap-1 mb-4">
-            <div class="text-primary-900 text-6xl font-bold font-tajawal leading-none">110</div>
-            <div class="text-neutral-600 text-lg font-medium font-tajawal">شخص استفاد من مشاركتك</div>
+                <div class="text-primary-700 text-4xl font-medium font-tajawal leading-none">492</div>
+                <div class="text-neutral-600 text-lg font-medium font-tajawal">نقطة تأثير إيجابي</div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="w-full sm:flex-1 bg-secondary-50 h-[172px] p-5 rounded-3xl shadow-custom border border-secondary-100 flex flex-col gap-4 items-center relative overflow-hidden">
+            <div class="relative w-full h-12 px-5 py-2.5 bg-secondary-100 rounded-full flex justify-center items-center">
+                <i class="fas fa-user-friends text-primary-800 text-lg absolute left-5"></i>
+                <span class="text-primary-800 text-xl font-bold font-tajawal">الأشخاص المستفيدون</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 mb-4">
+                <div class="text-primary-700 text-4xl font-medium font-tajawal leading-none">110</div>
+                <div class="text-neutral-600 text-lg font-medium font-tajawal">شخص استفاد من مشاركتك</div>
             </div>
         </div>
 
     </div>
+
     <!-- big container -->
-    <div class="w-full max-w-[1240px] pt-5 pb-6 mb-12 bg-secondary-100 rounded-[60px] shadow-custom flex flex-col justify-center items-center gap-6" dir="rtl">
+    <div class="w-full max-w-[1240px] pt-5 pb-6 mb-12 bg-secondary-100 rounded-[60px] shadow-custom flex flex-col justify-center items-center gap-6 mx-auto" dir="rtl">
         
         <div class="text-center text-primary-900 text-3xl font-bold font-tajawal">
             التجمعات القادمة
         </div>
 
-        <div class="w-[900px] bg-secondary-50 rounded-[20px] shadow-sm flex items-center overflow-hidden border border-secondary-100">
-            
-            <div class="w-[366px] h-[286px] flex-shrink-0">
-                <img class="w-full h-full object-cover" src="https://placehold.co/366x286" alt="Event Image" />
+        <!-- Event Row 1 -->
+        <!-- ليتوافق مع أبعاد التابلت والـ Desktop، تم جعل العرض md:w-[900px] ثابتاً، ويتقلص مرناً فقط للموبايل -->
+        <div class="w-full max-w-[95%] md:w-[900px] bg-secondary-50 rounded-[20px] shadow-sm flex flex-col md:flex-row items-center overflow-hidden border border-secondary-100 p-4 md:p-0 gap-4 md:gap-0">
+            <div class="w-full md:w-[366px] h-48 md:h-[286px] flex-shrink-0">
+                <img class="w-full h-full object-cover rounded-[15px] md:rounded-none" src="https://placehold.co/366x286" alt="Event Image" />
             </div>
-
-            <div class="flex-1 flex flex-col justify-center items-start gap-4 py-5 px-8">
+            <div class="flex-1 flex flex-col justify-center items-start gap-4 py-3 md:py-5 px-4 md:px-8 w-full">
                 <div class="flex items-center gap-3">
                     <i class="fas fa-map-marker-alt text-primary-800 text-xl"></i>
-                    <span class="text-primary-900 text-2xl font-medium font-tajawal">توزيع وجبات - حي الزهراء</span>
+                    <span class="text-primary-900 text-xl md:text-2xl font-medium font-tajawal">توزيع وجبات - حي الزهراء</span>
                 </div>
                 <div class="flex items-center gap-3">
                     <i class="fas fa-calendar-day text-primary-800 text-xl"></i>
-                    <span class="text-primary-800 text-2xl font-medium font-tajawal">الجمعة، 15 رمضان</span>
+                    <span class="text-primary-800 text-xl md:text-2xl font-medium font-tajawal">الجمعة، 15 رمضان</span>
                 </div>
                 <div class="flex items-center gap-3">
                     <i class="fas fa-clock text-primary-800 text-xl"></i>
-                    <span class="text-primary-800 text-xl font-medium font-tajawal">من 5 عصرًا حتى أذان العشاء</span>
+                    <span class="text-primary-800 text-lg md:text-xl font-medium font-tajawal">من 5 عصرًا حتى أذان العشاء</span>
                 </div>
             </div>
-
-            <div class="flex flex-col justify-center items-center gap-4 px-10">
-                <div class="px-6 py-1 bg-primary-800 rounded-full shadow-md">
+            <div class="flex flex-row md:flex-col justify-center items-center gap-4 px-4 md:px-10 w-full md:w-auto pb-2 md:pb-0">
+                <div class="px-6 py-1 bg-primary-800 rounded-full shadow-md whitespace-nowrap">
                     <span class="text-secondary-50 text-base font-bold font-tajawal">تم تأكيد الحجز</span>
                 </div>
-                <button class="px-6 py-2 rounded-[10px] border border-primary-800 text-primary-800 text-base font-bold font-tajawal hover:bg-primary-50 transition-colors">
+                <button class="px-6 py-2 rounded-[10px] border border-primary-800 text-primary-800 text-base font-bold font-tajawal hover:bg-primary-50 transition-colors whitespace-nowrap">
                     إلغاء الحجز
                 </button>
             </div>
         </div>
 
-        <div class="w-[900px] bg-secondary-50 rounded-[20px] shadow-sm flex items-center overflow-hidden border border-secondary-100">
-            
-            <div class="w-[366px] h-[286px] flex-shrink-0">
-                <img class="w-full h-full object-cover" src="https://placehold.co/366x286" alt="Event Image" />
+        <!-- Event Row 2 -->
+        <div class="w-full max-w-[95%] md:w-[900px] bg-secondary-50 rounded-[20px] shadow-sm flex flex-col md:flex-row items-center overflow-hidden border border-secondary-100 p-4 md:p-0 gap-4 md:gap-0">
+            <div class="w-full md:w-[366px] h-48 md:h-[286px] flex-shrink-0">
+                <img class="w-full h-full object-cover rounded-[15px] md:rounded-none" src="https://placehold.co/366x286" alt="Event Image" />
             </div>
-
-            <div class="flex-1 flex flex-col justify-center items-start gap-4 py-5 px-8">
+            <div class="flex-1 flex flex-col justify-center items-start gap-4 py-3 md:py-5 px-4 md:px-8 w-full">
                 <div class="flex items-center gap-3">
                     <i class="fas fa-utensils text-primary-800 text-xl"></i>
-                    <span class="text-primary-900 text-2xl font-medium font-tajawal">الإفطار الجماعي</span>
+                    <span class="text-primary-900 text-xl md:text-2xl font-medium font-tajawal">الإفطار الجماعي</span>
                 </div>
                 <div class="flex items-center gap-3">
                     <i class="fas fa-calendar-day text-primary-800 text-xl"></i>
-                    <span class="text-primary-800 text-2xl font-medium font-tajawal">الاثنين، 22 رمضان</span>
+                    <span class="text-primary-800 text-xl md:text-2xl font-medium font-tajawal">الاثنين، 22 رمضان</span>
                 </div>
                 <div class="flex items-center gap-3">
                     <i class="fas fa-clock text-primary-800 text-xl"></i>
-                    <span class="text-primary-800 text-xl font-medium font-tajawal">من 5 عصرًا حتى أذان العشاء</span>
+                    <span class="text-primary-800 text-lg md:text-xl font-medium font-tajawal">من 5 عصرًا حتى أذان العشاء</span>
                 </div>
             </div>
-
-            <div class="flex flex-col justify-center items-center gap-4 px-10">
-                <div class="px-6 py-1 bg-secondary-400 rounded-full shadow-md">
+            <div class="flex flex-row md:flex-col justify-center items-center gap-4 px-4 md:px-10 w-full md:w-auto pb-2 md:pb-0">
+                <div class="px-6 py-1 bg-secondary-400 rounded-full shadow-md whitespace-nowrap">
                     <span class="text-primary-900 text-base font-bold font-tajawal">قيد الانتظار</span>
                 </div>
-                <button class="px-6 py-2 rounded-[10px] border border-primary-800 text-primary-800 text-base font-bold font-tajawal hover:bg-primary-50 transition-colors">
+                <button class="px-6 py-2 rounded-[10px] border border-primary-800 text-primary-800 text-base font-bold font-tajawal hover:bg-primary-50 transition-colors whitespace-nowrap">
                     إلغاء الحجز
                 </button>
             </div>
         </div>
+
     </div>
 </div>
