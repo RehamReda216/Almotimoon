@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './user-app/shared/components/header/header.component';
-import { FooterComponent } from './user-app/shared/components/footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { initFlowbite } from 'flowbite';
 // import * as AOS from 'aos';
 import * as AOS from 'aos';
