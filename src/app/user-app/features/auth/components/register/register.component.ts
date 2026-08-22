@@ -75,7 +75,7 @@ export class RegisterComponent {
             this.toastr.displayToastr('تم إنشاء الحساب بنجاح', 'success');
             this.isOpenedSpinner.set(true);
             setTimeout(() => {
-              this._Router.navigate(['/login']);
+              this._Router.navigate(['/auth/login']);
               this.isOpenedSpinner.set(false);
             }, 2000);
           }

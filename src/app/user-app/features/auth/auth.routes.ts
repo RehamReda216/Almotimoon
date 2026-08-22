@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
+import { AuthComponent } from './pages/auth/auth.component';
 import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
-  // Auth routes - should come first
   {
     path: '',
-
+    component: AuthComponent,
     children: [
       {
         path: '',

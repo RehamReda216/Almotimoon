@@ -66,7 +66,7 @@ export class LoginComponent {
           );
           this.toastr.displayToastr('تم تسجيل الدخول بنجاح', 'success');
           this._userdataService.setUserData();
-          this._Router.navigate(['/user-layout']);
+          this._Router.navigate(['/home']);
         },
         error: (err) => {
           this.toastr.displayToastr(

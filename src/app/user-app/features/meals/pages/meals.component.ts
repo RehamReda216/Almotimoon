@@ -21,7 +21,7 @@ export class MealsPageComponent implements AfterViewInit {
     }
   }
   goToRegistration(){
-        this.router.navigate(['/registration']);
+        this.router.navigate(['/auth/register']);
   }
   infoData=[
     {
