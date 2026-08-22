@@ -14,9 +14,26 @@ import { errorsInterceptor } from './user-app/core/interceptors/errors/errors.in
 import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { authInterceptor } from './user-app/core/interceptors/auth/auth.interceptor';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('YOUR_GOOGLE_CLIENT_ID'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
     provideZoneChangeDetection({ eventCoalescing: true }),
 
     provideRouter(routes),

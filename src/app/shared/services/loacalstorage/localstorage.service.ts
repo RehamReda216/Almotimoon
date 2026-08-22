@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class LocalstorageService {
   constructor() {}
+  isStored(key: string): boolean {
+    return localStorage.getItem(key) !== null;
+  }
   storeValue(key: string, value: any) {
     try {
       const serializedValue = JSON.stringify(value);
@@ -15,16 +18,21 @@ export class LocalstorageService {
   }
   getValue(key: string) {
     try {
-      const serializedValue = localStorage.getItem(key);
-
-      if (!serializedValue) {
+      if (!this.isStored(key)) {
         return null;
       }
 
-      return serializedValue;
+      return JSON.parse(localStorage.getItem(key) || '{}');
     } catch (error) {
       console.error('Error parsing localStorage value', error);
       return null;
     }
+  }
+  removeValue(key: string) {
+    if (!this.isStored(key)) {
+      console.warn(`Key "${key}" does not exist in localStorage.`);
+      return;
+    }
+    localStorage.removeItem(key);
   }
 }

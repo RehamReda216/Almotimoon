@@ -5,50 +5,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthService {
+  baseUrl = 'https://overarch-surfer-blatancy.ngrok-free.dev/api/users';
   constructor(private httpService: HttpClient) {}
   register(userData: any) {
     console.log(userData);
-    return this.httpService.post(
-      'https://overarch-surfer-blatancy.ngrok-free.dev/api/users/register',
-      userData,
-    );
+    return this.httpService.post(`${this.baseUrl}/register`, userData);
   }
   login(userData: any) {
-    return this.httpService.post(
-      'https://overarch-surfer-blatancy.ngrok-free.dev/api/users/login',
-      userData,
-      {
-        withCredentials: true,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
-    );
+    return this.httpService.post(`${this.baseUrl}/login`, userData);
   }
-  logout() {
-    return this.httpService
-      .post(
-        'https://overarch-surfer-blatancy.ngrok-free.dev/api/users/logout',
-
-        {
-          withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      )
-      .subscribe();
+  signInWithGoogle() {
+    return this.httpService.get(`${this.baseUrl}/auth/google`);
   }
-  getAccessToken() {
+  logout(data: any) {
+    return this.httpService.post(`${this.baseUrl}/logout`, data);
+  }
+  getAccessToken(refresh_token: string) {
     return this.httpService.post(
-      'https://overarch-surfer-blatancy.ngrok-free.dev/api/users/refresh-token',
-
-      {
-        withCredentials: true,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
+      `${this.baseUrl}/refresh-token`,
+      refresh_token,
     );
   }
 }

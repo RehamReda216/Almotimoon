@@ -9,6 +9,11 @@ import { LoginComponent } from './user-app/features/auth/components/login/login.
 
 export const routes: Routes = [
   {
+    path: 'auth',
+    loadChildren: () =>
+      import('../app/user-app/features/auth/auth.routes').then((m) => m.routes),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('../app/user-app/features/user-layout/user-layout-routes').then(
@@ -16,8 +21,17 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'auth',
+    path: 'forbidden',
     loadChildren: () =>
-      import('../app/user-app/features/auth/auth.routes').then((m) => m.routes),
+      import('../app/shared/components/forbiden/forbiden.component').then(
+        (m) => m.ForbidenComponent,
+      ),
+  },
+  {
+    path: 'not-found',
+    loadChildren: () =>
+      import('../app/shared/components/notfound/notfound.component').then(
+        (m) => m.NotfoundComponent,
+      ),
   },
 ];

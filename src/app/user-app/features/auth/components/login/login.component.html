@@ -152,24 +152,19 @@
               [background]="'bg-primary-800'"
               [textColor]="'text-white'"
               [width]="'w-full'"
-              >تسجيل الدخول
+            >
+              @if (isLoading()) {
+                <span class="text-center"> جاري التحميل ... </span>
+              } @else {
+                <span> تسجيل الدخول</span>
+              }
             </app-button>
             <!-- ====== or  -->
             <div class="w-fit mx-auto">
               <span class="text-primary-700 font-medium flex justify-center"
                 >أو</span
               >
-              <div
-                class="flex gap-1 items-center border border-[#D9D9D9] rounded-3xl py-3 px-8 mb-3"
-              >
-                <img src="../../../../../assets/login/Vector.png" alt="" />
-                <span class="font-medium text-[12px]"
-                  >تسجيل الدخول باستخدام Apple</span
-                >
-              </div>
-              <div
-                class="flex gap-1 items-center border border-[#D9D9D9] rounded-3xl py-3 px-8 mb-3"
-              >
+              <app-loginwith providerName="Google">
                 <img
                   src="../../../../../assets/login/icons8-google 1.png"
                   alt=""
@@ -177,7 +172,13 @@
                 <span class="font-medium text-[12px]"
                   >تسجيل الدخول باستخدام Google</span
                 >
-              </div>
+              </app-loginwith>
+              <app-loginwith providerName="Apple">
+                <img src="../../../../../assets/login/Vector.png" alt="" />
+                <span class="font-medium text-[12px]"
+                  >تسجيل الدخول باستخدام Apple</span
+                >
+              </app-loginwith>
               <a
                 routerLink="/register"
                 class="hover:text-[var(--accent)] text-[var(--hover)] hover:underline transition block mx-auto w-fit"

@@ -13,10 +13,16 @@ import { AuthService } from '../../service/auth.service';
 import { LocalstorageService } from '../../../../../shared/services/loacalstorage/localstorage.service';
 import { AppToastrService } from '../../../../../shared/services/toastr/app-toastr.service';
 import { UserdataService } from '../../../../../shared/services/userdata/userdata.service';
+import { LoginwithComponent } from '../../../../../shared/components/loginwith/loginwith.component';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, RouterLink, ButtonComponent],
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+    ButtonComponent,
+    LoginwithComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -25,6 +31,7 @@ export class LoginComponent {
   errorLoginMessage: string = '';
   isLoading = signal<boolean>(false);
 
+  isOpenedSpinner = signal<boolean>(false);
   constructor(
     private fb: FormBuilder,
     private _Router: Router,
@@ -49,6 +56,8 @@ export class LoginComponent {
       .pipe(finalize(() => this.isLoading.set(false)))
       .subscribe({
         next: (res: any) => {
+          this.isLoading.set(true);
+
           if (!res?.data?.accessToken || !res?.data?.refreshToken) {
             this.toastr.displayToastr(
               'يوجد خطأ في بيانات الاستجابة من الخادم',
