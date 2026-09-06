@@ -5,8 +5,8 @@ import {
   inject,
 } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { catchError, of } from 'rxjs';
 import { AuthService } from '../../../features/auth/service/auth.service';
+import { AppToastrService } from '../../../../shared/services/toastr/app-toastr.service';
 import { UserdataService } from '../../../../shared/services/userdata/userdata.service';
 import { ButtonComponent } from '../button/button.component';
 
@@ -20,6 +20,7 @@ import { ButtonComponent } from '../button/button.component';
 export class HeaderComponent {
   private readonly authService = inject(AuthService);
   private readonly userDataService = inject(UserdataService);
+  private readonly toastr = inject(AppToastrService);
   private readonly router = inject(Router);
 
   readonly isLoggedIn = this.userDataService.isLoggedIn;
@@ -30,11 +31,14 @@ export class HeaderComponent {
   }
 
   logout(): void {
-    this.authService
-      .logout()
-      .pipe(catchError(() => of(null)))
-      .subscribe(() => {
+    this.authService.logout().subscribe({
+      next: () => {
+        this.toastr.displayToastr('تم تسجيل الخروج بنجاح', 'success');
         this.router.navigate(['/auth/login']);
-      });
+      },
+      error: () => {
+        this.router.navigate(['/auth/login']);
+      },
+    });
   }
 }

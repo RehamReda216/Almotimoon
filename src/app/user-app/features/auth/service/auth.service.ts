@@ -56,9 +56,12 @@ export class AuthService {
   }
 
   getAccessToken() {
+    const refreshToken =
+      this.localStorage.getValue<string>('refresh_token') ?? '';
+
     return this.http.post(
       `${this.apiBaseUrl}/users/refresh-token`,
-      {},
+      { refreshToken },
       {
         withCredentials: true,
         headers: {

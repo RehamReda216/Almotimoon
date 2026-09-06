@@ -1,52 +1,71 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { LocalstorageService } from '../../../../shared/services/loacalstorage/localstorage.service';
-import { catchError, switchMap, throwError } from 'rxjs';
-import { AuthService } from '../../../features/auth/service/auth.service';
 import { Router } from '@angular/router';
-// subscribe() = EXECUTE the request, get the result in a callback
-// pipe() = TRANSFORM the stream BEFORE anyone subscribes
+import { catchError, switchMap, throwError } from 'rxjs';
+import { LocalstorageService } from '../../../../shared/services/loacalstorage/localstorage.service';
+import { AuthService } from '../../../features/auth/service/auth.service';
+import { ApiResponse } from '../../../../shared/models/common/api-response.model';
+
+interface AuthTokens {
+  accessToken: string;
+  refreshToken?: string;
+}
+
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  const excludedUrls = ['/login', '/register'];
+  const excludedUrls = ['/login', '/register', '/refresh-token'];
   if (excludedUrls.some((url) => req.url.includes(url))) {
     return next(req);
   }
+
   const router = inject(Router);
   const localstorage = inject(LocalstorageService);
   const authService = inject(AuthService);
-  const access_token = localstorage.getValue('access_token');
-  if (access_token) {
+  const accessToken = localstorage.getValue<string>('access_token');
+
+  if (accessToken) {
     req = req.clone({
       setHeaders: {
-        Authorization: `Bearer ${access_token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     });
   }
+
   return next(req).pipe(
     catchError((error) => {
-      if (error.status === 401) {
-        localstorage.storeValue('access_token', null);
-        localstorage.storeValue('refresh_token', null);
-        return authService.getAccessToken().pipe(
-          switchMap((newToken: any) => {
-            localstorage.storeValue('access_token', newToken);
-
-            const clonedReq = req.clone({
-              setHeaders: {
-                Authorization: `Bearer ${newToken}`,
-              },
-            });
-            return next(clonedReq);
-          }),
-          catchError((refreshError) => {
-            authService.logout().subscribe();
-            router.navigate(['/auth/login']);
-            return throwError(() => refreshError);
-          }),
-        );
+      if (error.status !== 401) {
+        return throwError(() => error);
       }
 
-      return throwError(() => error);
+      return authService.getAccessToken().pipe(
+        switchMap((res) => {
+          const tokens = (res as ApiResponse<AuthTokens>)?.data;
+          const newAccessToken = tokens?.accessToken;
+
+          if (!newAccessToken) {
+            authService.clearSession();
+            router.navigate(['/auth/login']);
+            return throwError(() => error);
+          }
+
+          localstorage.storeValue('access_token', newAccessToken);
+          if (tokens.refreshToken) {
+            localstorage.storeValue('refresh_token', tokens.refreshToken);
+          }
+
+          return next(
+            req.clone({
+              setHeaders: {
+                Authorization: `Bearer ${newAccessToken}`,
+              },
+            }),
+          );
+        }),
+        catchError((refreshError) => {
+          authService.clearSession();
+          router.navigate(['/auth/login']);
+          return throwError(() => refreshError);
+        }),
+      );
     }),
   );
 };
