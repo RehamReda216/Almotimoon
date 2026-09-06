@@ -28,14 +28,17 @@ export class AuthService {
   }
 
   /**
-   * Sends the current access token through the auth interceptor, then clears
-   * all local session data whether the request succeeds or fails.
+   * Sends access token via auth interceptor and refreshToken in the body,
+   * then clears all local session data whether the request succeeds or fails.
    */
   logout(): Observable<unknown> {
+    const refreshToken =
+      this.localStorage.getValue<string>('refresh_token') ?? '';
+
     return this.http
       .post(
         `${this.apiBaseUrl}/users/logout`,
-        {},
+        { refreshToken },
         {
           withCredentials: true,
           headers: {
@@ -43,9 +46,7 @@ export class AuthService {
           },
         },
       )
-      .pipe(
-        finalize(() => this.clearSession()),
-      );
+      .pipe(finalize(() => this.clearSession()));
   }
 
   /** Local-only logout used when the API call is unavailable. */

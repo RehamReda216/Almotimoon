@@ -27,7 +27,7 @@ export abstract class BaseHttpService<T> {
   /**
    * GET /{resource}
    * Migrated: `getAll<ApiResponse<Item>>()`.
-   * Legacy: `getAll<PaginatedResponse<Item>>()`.
+   * Legacy: `getAll<PaginatedApiResponse<Item>>()`.
    */
   getAll<R = T[]>(
     params?: PaginationParams,
@@ -86,35 +86,11 @@ export abstract class BaseHttpService<T> {
     initial?: HttpParams,
   ): HttpParams {
     let httpParams = initial ?? new HttpParams();
-    if (params?.pageNumber) {
-      httpParams = httpParams.set('pageNumber', params.pageNumber.toString());
+    if (params?.page) {
+      httpParams = httpParams.set('page', params.page.toString());
     }
-    if (params?.pageSize) {
-      httpParams = httpParams.set('pageSize', params.pageSize.toString());
-    }
-    if (params?.search) {
-      httpParams = httpParams.set('search', params.search);
-    }
-    if (params?.filters) {
-      Object.keys(params.filters).forEach((key) => {
-        const value = params.filters![key];
-        if (value === undefined || value === '') {
-          return;
-        }
-        if (value === null) {
-          httpParams = httpParams.set(`filters[${key}]`, 'null');
-          return;
-        }
-        httpParams = httpParams.set(`filters[${key}]`, String(value));
-      });
-    }
-    if (params?.sort) {
-      Object.keys(params.sort).forEach((key) => {
-        const value = params.sort![key];
-        if (value) {
-          httpParams = httpParams.set(`sort[${key}]`, value);
-        }
-      });
+    if (params?.per_page) {
+      httpParams = httpParams.set('per_page', params.per_page.toString());
     }
     return httpParams;
   }
