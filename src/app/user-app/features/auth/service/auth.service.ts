@@ -1,35 +1,41 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { Observable, finalize } from 'rxjs';
+import { environment } from '../../../../../environments/environment';
+import { LocalstorageService } from '../../../../shared/services/loacalstorage/localstorage.service';
+import { UserdataService } from '../../../../shared/services/userdata/userdata.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private httpService: HttpClient) {}
-  register(userData: any) {
-    console.log(userData);
-    return this.httpService.post(
-      'https://overarch-surfer-blatancy.ngrok-free.dev/api/users/register',
-      userData,
-    );
-  }
-  login(userData: any) {
-    return this.httpService.post(
-      'https://overarch-surfer-blatancy.ngrok-free.dev/api/users/login',
-      userData,
-      {
-        withCredentials: true,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
-    );
-  }
-  logout() {
-    return this.httpService
-      .post(
-        'https://overarch-surfer-blatancy.ngrok-free.dev/api/users/logout',
+  private readonly http = inject(HttpClient);
+  private readonly localStorage = inject(LocalstorageService);
+  private readonly userData = inject(UserdataService);
+  private readonly apiBaseUrl = environment.apiBaseUrl;
 
+  register(userData: unknown) {
+    return this.http.post(`${this.apiBaseUrl}/users/register`, userData);
+  }
+
+  login(userData: unknown) {
+    return this.http.post(`${this.apiBaseUrl}/users/login`, userData, {
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  /**
+   * Sends the current access token through the auth interceptor, then clears
+   * all local session data whether the request succeeds or fails.
+   */
+  logout(): Observable<unknown> {
+    return this.http
+      .post(
+        `${this.apiBaseUrl}/users/logout`,
+        {},
         {
           withCredentials: true,
           headers: {
@@ -37,12 +43,21 @@ export class AuthService {
           },
         },
       )
-      .subscribe();
+      .pipe(
+        finalize(() => this.clearSession()),
+      );
   }
-  getAccessToken() {
-    return this.httpService.post(
-      'https://overarch-surfer-blatancy.ngrok-free.dev/api/users/refresh-token',
 
+  /** Local-only logout used when the API call is unavailable. */
+  clearSession(): void {
+    this.localStorage.clearAll();
+    this.userData.clearUserData();
+  }
+
+  getAccessToken() {
+    return this.http.post(
+      `${this.apiBaseUrl}/users/refresh-token`,
+      {},
       {
         withCredentials: true,
         headers: {

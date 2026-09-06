@@ -47,7 +47,7 @@
     bg-[#FAF8F0] m-auto">
 
     <!-- Loop through cards using Angular 17 control flow -->
-    @for (card of cards; track card.label; let i = $index) {
+    @for (card of cards(); track card.label; let i = $index) {
 
       <!-- Card container -->
       <div class="w-full max-w-[100%] md:max-w-[95%] lg:max-w-[345px] h-[200px] border border-primary-500 

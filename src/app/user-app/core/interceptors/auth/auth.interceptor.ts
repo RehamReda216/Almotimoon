@@ -1,7 +1,7 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { LocalstorageService } from '../../../../shared/services/loacalstorage/localstorage.service';
-import { catchError, finalize, of, switchMap, throwError } from 'rxjs';
+import { catchError, switchMap, throwError } from 'rxjs';
 import { AuthService } from '../../../features/auth/service/auth.service';
 import { Router } from '@angular/router';
 // subscribe() = EXECUTE the request, get the result in a callback
@@ -39,7 +39,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
             return next(clonedReq);
           }),
           catchError((refreshError) => {
-            authService.logout();
+            authService.logout().subscribe();
             router.navigate(['/auth/login']);
             return throwError(() => refreshError);
           }),

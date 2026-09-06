@@ -4,8 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LocalstorageService {
-  constructor() {}
-  storeValue(key: string, value: any) {
+  storeValue(key: string, value: unknown): void {
     try {
       const serializedValue = JSON.stringify(value);
       localStorage.setItem(key, serializedValue);
@@ -13,18 +12,31 @@ export class LocalstorageService {
       console.error('Error storing value in localStorage', error);
     }
   }
-  getValue(key: string) {
+
+  getValue<T = unknown>(key: string): T | null {
     try {
       const serializedValue = localStorage.getItem(key);
 
-      if (!serializedValue) {
+      if (!serializedValue || serializedValue === 'null') {
         return null;
       }
 
-      return serializedValue;
+      try {
+        return JSON.parse(serializedValue) as T;
+      } catch {
+        return serializedValue as T;
+      }
     } catch (error) {
       console.error('Error parsing localStorage value', error);
       return null;
     }
+  }
+
+  removeValue(key: string): void {
+    localStorage.removeItem(key);
+  }
+
+  clearAll(): void {
+    localStorage.clear();
   }
 }
