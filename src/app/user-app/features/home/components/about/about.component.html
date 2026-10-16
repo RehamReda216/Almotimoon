@@ -3,8 +3,7 @@
     @for( data of sectionData; track data.id){
         <div class="flex flex-col md:flex-row justify-between md:gap-2 lg:m-l md:m-md m-s ">
             <!-- Text Section -->
-            <div class="md:w-2/4 lg:w-8/12 font-tajawal text-center md:text-start"
-                data-aos="fade-left">
+            <div class="md:w-2/4 lg:w-8/12 font-tajawal text-center md:text-start">
                 <h2 class="font-bold text-5xl text-primary-600 py-2.5"> 
                     {{data.headline}}
                 </h2>
@@ -20,7 +19,7 @@
                 </p>
             </div>
             <!-- Image Section -->
-            <img  data-aos="fade-right" class="lg:w-1/4" [src]="data.image" [alt]="data.imageAlt"/>
+            <img class="lg:w-1/4" [src]="data.image" [alt]="data.imageAlt"/>
         </div>
     }
 </div>
